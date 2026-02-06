@@ -1,0 +1,13 @@
+<div class="dashboard">
+    <h1>Painel de Controle</h1>
+    
+    <div class="status-card" [class.connected]="isConnected">
+        Status: {{ isConnected ? 'ONLINE 🟢' : 'DESCONECTADO 🔴' }}
+    </div>
+
+    <div *ngIf="!isConnected" class="qr-area">
+        <p>Escaneie para conectar:</p>
+        <img [src]="qrCodeUrl" *ngIf="qrCodeUrl" width="300">
+        <button (click)="gerarQrCode()">Gerar Novo QR Code</button>
+    </div>
+</div>
